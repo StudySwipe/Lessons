@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EKG-Basics</title>
+    <link rel="stylesheet" href="../lib/css/studyswipe.css">
+</head>
+<body>
+    <div class="weblearn">
+      <!-- Show navigation-->
+      <div class="navigation">
+        <div>
+          <button class="expndnav"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></button>
+          <progress id="progressbar" max="100" value="0"></progress>
+        </div>
+        <div id="navul" style="display:none">
+        </div>
+      </div>
+
+      <div class="pages">
+          <section id="start">
+              <h1>Willkommen zu den EKG-Basics!</h1>
+              <p>In dieser Lektion erlernst du:</p>
+              <ul>
+                  <li>Wie man ein EKG ableitet</li>
+                  <li>Die technische Funktionsweise eines EKG</li>
+                  <li>Die Bedeutung der einzelnen EKG-Zacken</li>
+                  <li>Bestimmung v. Lagetyp & Herzfrequenz</li>
+                  <li>Erkennung v. Krankheitszeichen</li>
+                  <li>Ablaufschema zur EKG-Auswertung</li>
+              </ul>
+              <p>Voraussetzungen:</p>
+              <ul>
+                  <li>Grobe Kenntnisse der Herzanatomie und -physiologie.</li>
+              </ul>
+              <hr>
+              <p>Bitte wähle zunächst, welche Detailstufe du sehen möchtest:</p>
+              <div class="level-select">
+                  <div>
+                      <input type="radio" data-level="1" id="level-1" name="level">
+                      <label for="level-1">Nur das Wichtigste, mehr Grundlagen werden vorausgesetzt</label>
+                  </div>
+                  <div>
+                      <input type="radio" data-level="2" id="level-2" name="level">
+                      <label for="level-2">Detaillierter</label>
+                  </div>
+                  <div>
+                      <input type="radio" data-level="3" id="level-3" name="level" checked>
+                      <label for="level-3">Alles, alle Grundlagen werden erklärt.</label>
+                  </div>
+              </div>
+          </section>
+          <section id="grundlagen">
+              <section id="grundlagen-1">
+                  <h1>Grundlagen</h1>
+                  <p>Für die Aufrechterhaltung der Blutversorgung ist eine kontrollierte <span class="tooltip">Kontraktion<span class="tooltiptext">Zusammenziehen</span></span> des Herzens notwendig.</p>
+                  <figure class="imagebox">
+                      <img src="resources/CG_Heart.gif" style="max-height: 400px;" alt="Computeranimierter Querschnitt eines schlagenden Herzens.">
+                      <figcaption>Kontraktion des Herzens; Quelle: <a href="https://commons.wikimedia.org/w/index.php?curid=50477765">By DrJanaOfficial, CC BY-SA 4.0</a></figcaption>
+                  </figure>
+                  <p>Die <span class="tooltip">Kardiomyozyten<span class="tooltiptext"><b>Kardiomyozyten</b> = Herzmuskelzellen. Die Gesamtheit der Kardiomyozyten bilden das Myokard. </span></span> sind untereinander verbunden und
+                      werden durch elektrische Impulse stimuliert. Die Summe dieser elektrischen Aktivitäten können im <b>Elektrokardiogramm</b>, dem EKG, dargestellt werden.
+                  </p>
+              </section>
+              <section id="grundlagen-2">
+                  <h2>Herzerregung</h2>
+                  <p>Die elektrischen Impulse werden im Myocard selbst erzeugt. Schrittmacherzellen, eine Sonderform der Kardiomyozyten, generieren diese elektrischen Impulse mithilfe von <span class="tooltip">HCN-Kanälen<span class="tooltiptext"><b>HCN-Kanäle</b> = hyperpolarisationsaktivierten Kationenkanälen (auch funny channels)</span></span>.</p>
+                  <p>Das primäre Schrittmacherzentrum ist der <b>Sinusknoten</b>, dieser leitet die Erregung über den <b>AV-Knoten</b>, das <b>His-Bündel</b>, die beiden <b>Tawara-Schenkel</b> bis in die <b>Purkinje-Fasern</b>.</p>
+                  <figure class="imagebox">
+                      <img src="resources/Heart_and_electrical_conduction_system.jpg" style="max-height: 400px;" alt="Übersicht über das Erregungsbildungs und Erregungsleitungssystem.">
+                      <figcaption>Keanu Dölle, CC BY-SA 4.0, via <a href="https://commons.wikimedia.org/wiki/File:Heart_and_electrical_conduction_system_german.svg">Wikimedia Commons</a></figcaption>
+                  </figure>
+              </section>
+              <section id="grundlagen-3">
+                  <h2>Schrittmacher-Potenziale</h2>
+                  <div class="box box-red">
+                      <span class="box-title">Achtung:</span>
+                      <p>Alle Teile des Erregungsleitungssystems erzeugen eigene Schrittmacher-Potenziale!</p>
+                  </div>
+                  <p>Die Grundfrequenz der Schrittmacher-Potenziale aller Teile des Erregungsleitungssystems nimmt ausgehend vom Sinusknoten ab: Die Sinusknoten-Potenziale haben eine höhere Frequenz als die AV-Knoten-Potenziale usw. </p>
+                  <p>Hierdurch wird z. B. der AV-Knoten durch Aktionspotenziale des Sinusknotens erregt, bevor dieser ein eigenes Aktionspotenzial generiert. Fällt jedoch ein Schrittmacherzentrum aus, übernimmt automatisch das untergeordnete Schrittmacherzentrum.</p>
+                  <table style="width: 100%; text-align: left;">
+                      <tr>
+                          <th>Schrittmacherzentrum</th>
+                          <th>Grundfrequenz</th>
+                      </tr>
+                      <tr>
+                          <td>Sinusknoten - primäres Schrittmacherzentrum</td>
+                          <td>ca. 60 - 80 / min</td>
+                      </tr>
+                      <tr>
+                          <td>AV-Knoten - sekundäres Schrittmacherzentrum</td>
+                          <td>ca. 40 - 50 / min</td>
+                      </tr>
+                      <tr>
+                          <td>His-Bündel abwärts - tertiäres (ventrikuläres) Schrittmacherzentrum</td>
+                          <td>ca. 30 - 40 / min</td>
+                      </tr>
+                  </table>
+              </section>
+          </section>
+      </div>
+    </div>
+
+  <!-- Show sizer for scaling-->
+  <div class="sizer">
+    <input type="range" min="30" max="95" value="35" class="slider" id="marginslider">
+  </div>
+
+  <!-- Include StudySwipe JS -->
+  <script type="module">
+    import WebLearn from "../lib/js/studyswipe.js";
+    WebLearn.init();
+    WebLearn.init_sizer();
+  </script>
+</body>
+</html>
